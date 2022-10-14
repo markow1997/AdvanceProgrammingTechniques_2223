@@ -1,0 +1,8 @@
+/* Students attendance list template
+  Name Surname
+  {
+    07.10.2022
+    14.10.2022
+    ....
+  }
+*/
