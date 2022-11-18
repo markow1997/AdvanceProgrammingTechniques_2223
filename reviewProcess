@@ -4,9 +4,13 @@
 # 3 approves are needed to merge the pull request.
 # 1 one of them has to be approved by the codeowner.
 #
-# Pull requests have to be closed after 3 days of inactivity. Failing to do so will result in sudden death.
+# Pull requests have to be closed after 3 days of inactivity.
 #
 # Attendance list has to follow the correct naming template for commits and pull requests:
 # Update AttendanceList <date>
 # 
+# Leetcode tasks have to follow the correct naming template for commits and pull requests with description:
+# <number of task in leetcode>. <name of the task>
+#
+# Every commit should be signed with university e-mail
 #
