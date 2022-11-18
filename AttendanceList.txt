@@ -80,6 +80,7 @@ Marcin Kowalski
   21.10.2022
   28.10.2022
   04.11.2022
+  18.11.2022
 }
 Artur Grabowski
 {
