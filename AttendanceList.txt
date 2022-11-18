@@ -84,6 +84,7 @@ Marcin Kowalski
 Artur Grabowski
 {
   04.11.2022
+  18.11.2022
 }
 
 Vladyslav Zagurskiy
