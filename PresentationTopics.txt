@@ -26,4 +26,4 @@
 # 
 # 7) Stosuje podstawowe wzorce projektowe.
 # Barbara_Kosior
-# <Imie_Nazwisko>
+# Monika_Mostek
