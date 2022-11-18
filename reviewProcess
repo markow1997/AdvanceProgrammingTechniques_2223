@@ -1,0 +1,12 @@
+#
+# Rules for review pull requests:
+#
+# 3 approves are needed to merge the pull request.
+# 1 one of them has to be approved by the codeowner.
+#
+# Pull requests have to be closed after 3 days of inactivity. Failing to do so will result in sudden death.
+#
+# Attendance list has to follow the correct naming template for commits and pull requests:
+# Update AttendanceList <date>
+# 
+#
