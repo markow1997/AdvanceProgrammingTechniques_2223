@@ -10,7 +10,7 @@
 #
 # 3) Używa zaawansowanych narzędzi i bibliotek programistycznych dostępnych w wybranym języku programowania.
 # <Imie_Nazwisko>
-# <Imie_Nazwisko>
+# Mateusz_Sapała
 # 
 # 4) Umie przeprowadzić testy jednostkowe aplikacji (za pomocą własnych lub udostępnionych szkieletów testujących).
 # Konrad_Stępniak
