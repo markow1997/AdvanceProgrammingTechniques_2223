@@ -17,7 +17,7 @@
 # Kacper_Węgrzynowski
 # 
 # 5) Stosuje techniki śledzenia aplikacji.
-# <Imie_Nazwisko>
+# Adrian_Kunikowski
 # <Imie_Nazwisko>
 # 
 # 6) Programuje z użyciem wyjątków.
@@ -27,3 +27,4 @@
 # 7) Stosuje podstawowe wzorce projektowe.
 # Barbara_Kosior
 # Monika_Mostek
+
