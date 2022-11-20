@@ -6,7 +6,7 @@
 # 
 # 2) Tworząc program potrafi zarządzać dynamicznie przydzielanymi zasobami.
 # <Imie_Nazwisko>
-# <Imie_Nazwisko>
+# Zofia_Szyposzyńska
 #
 # 3) Używa zaawansowanych narzędzi i bibliotek programistycznych dostępnych w wybranym języku programowania.
 # <Imie_Nazwisko>
