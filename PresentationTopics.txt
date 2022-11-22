@@ -5,7 +5,7 @@
 # <Imie_Nazwisko>
 # 
 # 2) Tworząc program potrafi zarządzać dynamicznie przydzielanymi zasobami.
-# <Imie_Nazwisko>
+# Barbara_Kosior
 # Zofia_Szyposzyńska
 #
 # 3) Używa zaawansowanych narzędzi i bibliotek programistycznych dostępnych w wybranym języku programowania.
@@ -25,6 +25,6 @@
 # Marcin_Kowalski
 # 
 # 7) Stosuje podstawowe wzorce projektowe.
-# Barbara_Kosior
+# <Imie_Nazwisko>
 # Monika_Mostek
 
