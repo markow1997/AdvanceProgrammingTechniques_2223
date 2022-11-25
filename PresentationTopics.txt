@@ -1,7 +1,7 @@
 # Presentation Topics
 # 
 # 1) Analizuje istniejące problemy programistyczne w kontekście obiektowym.
-# <Imie_Nazwisko>
+# Artur_Grabowski
 # <Imie_Nazwisko>
 # 
 # 2) Tworząc program potrafi zarządzać dynamicznie przydzielanymi zasobami.
