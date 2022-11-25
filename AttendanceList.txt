@@ -74,6 +74,7 @@ Denys Shevchuk
   21.10.2022
   28.10.2022
   04.11.2022
+  25.11.2022
 }
 Marcin Kowalski
 {
