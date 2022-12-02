@@ -25,6 +25,6 @@
 # Marcin_Kowalski
 # 
 # 7) Stosuje podstawowe wzorce projektowe.
-# <Imie_Nazwisko>
+# Vladyslav_Zagurskiy
 # Monika_Mostek
 
