@@ -18,7 +18,7 @@
 # 
 # 5) Stosuje techniki śledzenia aplikacji.
 # Adrian_Kunikowski
-# <Imie_Nazwisko>
+# Denys_Shevchuk
 # 
 # 6) Programuje z użyciem wyjątków.
 # Michał_Barański
