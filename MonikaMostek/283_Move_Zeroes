@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Leetcode.Projects
+{
+    public class MoveZeroes
+    {
+        public void move()
+        {
+            int[] arr = { 0, 1, 0, 3, 12 };
+            int index = arr.Length-1;
+            int tmp;
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (i == index)
+                {
+                    break;
+                }
+                while (i!=index && arr[i] == 0 && arr[index]==0)
+                {
+                    index--; 
+                }
+                if(arr[i] == 0 && arr[index] != 0)
+                {
+                    for (int j = i; j < index; j++)
+                    {
+                        arr[j] = arr[j + 1];
+                    }
+                    arr[index] = 0;
+                }
+            }
+            foreach(int element in arr)
+            {
+                Console.WriteLine(element);
+            }
+        }
+    }
+}
