@@ -1,0 +1,393 @@
+ # Teoria w praktyce #
+
+--- Smartpointery ---
+
+#include <iostream>
+using namespace std;
+
+class SmartPtr {
+	int* ptr; //Rzeczywisty wskaznik
+public:
+    // Konstruktor
+	explicit SmartPtr(int* p = NULL) { ptr = p; }
+
+	 //Destruktor
+	~SmartPtr() {
+	    delete (ptr);
+	    cout << "\n   Usunieto SmartPointer";
+	    }
+    //Przeciazenie operatora dereferencji
+	int& operator*() { return *ptr; }
+};
+
+int main()
+{
+	SmartPtr ptr(new int());
+	cout << "\n   Stworzono  SmartPointer \n";
+	*ptr = 20;
+	cout << *ptr;
+	return 0;
+}
+
+________________________________________________________________________________
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+// klasa inteligentnego wskaznika
+template <class T>
+class SmartPtr {
+	T* ptr; // Rzeczywisty wskaznik
+	T* ptrdo;
+public:
+	// Konstruktor
+	explicit SmartPtr(T* p = NULL) { ptr = p; ptrdo = p; }
+
+	// Destruktor
+	~SmartPtr() { delete (ptr); delete (ptrdo);}
+
+	// Przeciazenie operatora dereferencji
+	T& operator*() { return *ptr; return *ptrdo;}
+
+    // Przeladowanie operatora strzalki tak, ze
+    // mozna uzyskac dostêp do czlonków T
+    // jak wskaznik (przydatne, jezeli T reprezentuje
+    // klasa, struktura lub typ unii)
+
+	T* operator->() { return ptr; return ptrdo; }
+
+};
+
+int main()
+{
+	SmartPtr<int> ptr(new int());
+		cout << "\n   Stworzono  SmartPointer (typ int)\n";
+	*ptr = 20;
+	cout << *ptr;
+
+	SmartPtr<double> ptrdo(new double());
+		cout << "\n   Stworzono  SmartPointer (typ double) \n";
+	*ptrdo = 5.5;
+	cout << *ptrdo;
+
+
+	return 0;
+}
+
+________________________________________________________________________________
+
+#include <iostream>
+using namespace std;
+#include <memory>
+
+class Rectangle {
+	int rozmA;
+	int rozmB;
+
+public:
+	Rectangle(int a, int b)
+	{
+		rozmA = a;
+		rozmB = b;
+	}
+	int rozmiar()
+	{
+		return rozmA * rozmB;
+	}
+};
+
+int main()
+{
+	shared_ptr<Rectangle> P1(new Rectangle(10, 5));
+	cout <<"P1: "<< P1->rozmiar() << endl;
+
+	shared_ptr<Rectangle> P2;
+	P2 = P1;
+
+	cout << "P2: "<< P2->rozmiar() << endl;
+
+	cout << "P1: "<< P1->rozmiar() << endl;
+
+	cout << "licznik referencyjny: "<< P1.use_count() << endl;
+	return 0;
+}
+
+________________________________________________________________________________
+#include <iostream>
+#include <memory>
+using namespace std;
+
+class Rectangle {
+	int rozmA;
+	int rozmB;
+
+public:
+	Rectangle(int a, int b){
+		rozmA = a;
+		rozmB = b;
+	}
+	int rozmiar(){
+		return rozmA * rozmB;
+	}
+};
+int main(){
+
+	unique_ptr<Rectangle> P1(new Rectangle(10, 6));
+	cout << P1->rozmiar() << endl; // mnozy podane wartosci wyzej
+
+	// unique_ptr<Rectangle> P2(P1);
+	// usuwamy P1 i przypisujemy P2
+	unique_ptr<Rectangle> P2;
+	P2 = move(P1);
+
+	cout << P2->rozmiar() << endl;
+
+	return 0;
+}
+
+________________________________________________________________________________
+
+
+
+
+
+
+--- Wskażniki ---
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+      int *wskaznik = new int;
+      // sprawdzenie czy przydzielono pamiêæ
+      if (wskaznik!=NULL)
+      {
+
+          //pamieæ przydzielona
+          cout << "Wpisz wartosc: ";
+          cin>> *wskaznik;
+          cout << "Podana wartosc:" << wskaznik[0] << " \n";
+          cout << " Miejsce w pamiêci  " << &wskaznik << " \n";;
+          //zwolnienei pamieci
+          delete wskaznik;
+      }
+      else
+      {
+          // nie udalo sie przydzielic pamieci
+          cout << "Brak pamieci";
+      }
+
+
+  }
+
+________________________________________________________________________________
+//dzialania na tablicach przy uzyciu wskazników.
+
+ #include <stdio.h>
+ #include <iostream>
+ #include <string>
+using namespace std;
+ int main()
+  {
+      int liczba;
+       cout << "Wpisz liczbe z zakresu 3-10: ";
+       cin>> liczba;;
+
+      int a[liczba];
+      int *pa,i;
+      pa=a;// przypisanie wskaznikowi pa adresu a[0]
+      *pa=10; //zapis wartosci 10 do a[0]
+     pa++; //zwiekszenie wskaznika, wskazuje on teraz na a[1]
+      *pa=20; // zapis wartoœci 20 do a[1];
+      pa=pa+1; // wskaznik wskazuje na element a[2]
+      for (i=2; i<liczba; i++){
+      printf("\n Podaj a[%d]=",i);
+      scanf("%d",pa);
+      pa++;
+      }
+      pa=a; // ustawienie wskaznika na poczatek tablicy
+      // alternatywnie pa= pa-5
+      for (i=0;i<liczba;i++)
+      printf("\n a[%d]=%d", i,*pa++);
+      printf("\n");
+
+ }
+________________________________________________________________________________
+
+
+
+---Referencje---
+
+
+ #include <stdio.h>
+ #include <iostream>
+ #include <string>
+using namespace std;
+
+int main() {
+   int k = 5;
+   int p = 1;
+   int &refk = k;
+
+    cout << "refk = " << refk << endl;
+    cout << "   k = " << k    << endl;
+    cout << "   p = " << p    << endl;
+
+    k = 7;
+    p += k;
+    cout << "refk = " << refk << endl;
+    cout << "   k = " << k    << endl;
+    cout << "   p = " << p    << endl;
+
+    refk = 9;
+    p=refk;
+    cout << "refk = " << refk << endl;
+    cout << "   k = " << k    << endl;
+    cout << "   p = " << p    << endl;
+
+
+  }
+
+________________________________________________________________________________
+
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<conio.h>
+using namespace std;
+
+//referencje
+void nie_zwieksz (int i)
+{
+   ++i; // tak naprawde funkcja nie robi nic, bo zmieniona zostaje tylko lokalna kopia
+}
+void zwieksz_c (int *i)
+{
+   ++(*i); // ta funkcja jest napisana w stylu C
+}
+void zwieksz_cpp (int& i)
+{
+   ++i; // ta funkcja wykorzystuje mo¿liwoœci C++
+}
+int main ()
+{
+   int a = 0, b = 0, c = 0;
+   nie_zwieksz (a);
+   zwieksz_c (&b);
+   zwieksz_cpp (c);
+   cout << a << " " << b << " " << c  <<endl;
+   // wypisze "0 1 1"
+
+   return 0;
+}
+
+
+
+________________________________________________________________________________
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int DIM = 3;
+    cout << "Podaj pierwszy wymiar tworzenia tablicy [liczba][3]: ";
+    int size;
+    cin >> size;
+    int (*t)[DIM] = new int[size][DIM];
+
+    for (int i = 0; i < size; ++i)
+        for (int j = 0; j < DIM; ++j)
+            t[i][j] = 10*i + j;
+
+    int* p = reinterpret_cast<int*>(t);
+ /*   //opcja 2
+     for (int i = 0; i < size; ++i)
+        for (int j = 0; j < DIM; ++j)
+          cout << t[i][j] << " ";
+        cout << endl;
+*/
+    for (int i = 0; i < DIM*size; ++i)
+        cout << p[i] << " ";
+    cout << endl;
+    cout << endl;
+    cout << "adres poczatku tablicy t[0]        : " << t[0] << endl;
+    cout << "adresy elem w 2 wierszu t[1]       : " << t[1] << endl;
+    cout << "adresy elem w 3 wierszu t[2]       : " << t[2] << endl;
+
+}
+________________________________________________________________________________
+
+#include <iostream>
+#include <new>
+#include <iomanip>
+ using namespace std;
+
+ int main() {
+    const size_t mega = 1024*1024, step = 200*mega;
+
+      for (size_t size = step; ;size += step) {
+               try {
+                      char* buf = new char[size];
+                         delete [] buf;
+                     }
+              catch(bad_alloc) {
+                  cout << "NIE UDALO SIE: "  << size/mega << " MB" << endl;
+                return 1;
+                }
+            cout << "    udalo sie: "   << size/mega << " MB" << endl;
+       }
+   }
+
+________________________________________________________________________________
+ Uzycie operatora new do alokacji tablicy dwuwymiarowej.
+
+#include <iostream>
+using namespace std;
+
+typedef int( *TYPWSK2D)[2];// definicja wskaznika do tablicy
+// do tablicy dwuwumiarowej typu int o dwóch kolumnach
+typedef int* TYPWSK1D;
+#define N2 2
+void wczyt2D( int x[ ][N2], int n);
+void druk2D( int x[ ][N2], int n);
+
+int main()
+{
+ 	int n=2;
+	 TYPWSK2D wsk2D;
+	 wsk2D=(TYPWSK2D) new int[n*n];
+	 //wsk2D= new int[4];
+	 wczyt2D(wsk2D,n);
+ 	druk2D ( wsk2D,n);
+ 	cout<<"\n";
+ 	delete [] wsk2D;
+ 	system("pause");
+ 	return 0;
+}
+void wczyt2D( int x[ ][N2], int n)
+ { 	
+	int i,j;
+ 	for (i=0;i<n;i++)
+ 	for (j=0;j<N2;j++)
+	 {
+ 		cout<<"\n Element["<<i<<"]["<<j<<"]=";
+		 cin>>x[i][j];
+	 }
+ }
+
+void druk2D( int x[ ][N2], int n)
+ { 
+	int i,j;
+	 for (i=0;i<n;i++)
+   		 { for (j=0;j<N2;j++)
+ 			cout<< x[i][j];
+ 			cout<<"\n";
+		 }
+ }
+
+
+
